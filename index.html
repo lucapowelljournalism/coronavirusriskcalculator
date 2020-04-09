@@ -28,19 +28,31 @@
     <div class="container header">
       <h1> Coronavirus Health Risk Calculator</h1>
       <p>Based off data from the City of New York.</p>
-
     </div>
 
 
     <div class="container calculator">
-      <h2>How old are you?</h2>
-      <input class="question" type="number" id="myInput">
+      <div class="age">
+        <h2>How old are you?</h2>
+        <input class="question" type="number" id="myInput">
+        <p>Output Death Rate:<span id="caserate"></span>"%"</p>
+      </div>
     </div>
 
-    <div class="container output">
-      <h2>Case Rate: </h2>
-      <p><span id="caserate"></span>"%"</p>
+    <div class="container calculator">
+      <div class="conditions">
+        <h2>Do you have any pre-existing conditions?</h2>
+        <p>(Dropdown menu goes here!)</p>
+      </div>
     </div>
+
+    <div class="container calculator">
+      <div class="location">
+        <h2>What Country/State do you live in?</h2>
+        <p>(Dropdown menu goes here!)</p>
+      </div>
+    </div>
+
     <!--callsjquery and java-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="main.js"></script>
