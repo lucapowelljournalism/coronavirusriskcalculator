@@ -38,17 +38,32 @@ html, body {
     padding-bottom: 20px;
 }
 
+.content p {
+    line-height: 1.5em;
+}
+
 .calculator {
     background-color: #90DFDF;
     border-radius: 15px;
     text-align: center;
     padding: 2em;
     margin-bottom: 1em;
-    height: 180px;
 }
 
 .calculator h2 {
     display: inline;
+}
+
+.tiles p {
+    display: inline-block;
+    border-radius: 15%;
+    background-color: #98A7E1;
+    padding: 2em;
+    margin: 1em;
+}
+
+.inactive {
+    opacity: 0;
 }
 
 /*********************************************************************

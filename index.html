@@ -30,28 +30,80 @@
       <p>Based off data from the City of New York.</p>
     </div>
 
+    <div class="container content">
+      <p>A common refrain about pandemics is that they don't discriminate, and that they affect all of society evenly. <p> But the reality on the ground is much different. Data from hospitals chronicling the impact
+          of the illness show that socioeconomic factors, sex, ethnicity, age, location and even blood-type all play a part. As you change those variables, so too do you change your chances of surviving Covid-19.
 
-    <div class="container calculator">
-      <div class="age">
-        <h2>How old are you?</h2>
-        <input class="question" type="number" id="myInput">
-        <p>Output Death Rate:<span id="caserate"></span>"%"</p>
+          <p>Play around with the interactive below for a look at how these different factors can alter your odds of faring well against Covid-19.
+    </div>
+
+    <div class="container calculator begin tiles">
+      <p class="beginbutton"> Click here to begin </p>
+    </div>
+
+    <div class="container calculator sex inactive">
+      <div>
+        <h2>Are you male or female?</h2>
+        <p>Two buttons</p>
+        <div class="tiles">
+          <p>Male</p>
+          <p>Female</p>
+        </div>
       </div>
     </div>
 
-    <div class="container calculator">
-      <div class="conditions">
-        <h2>Do you have any pre-existing conditions?</h2>
-        <p>(Dropdown menu goes here!)</p>
-      </div>
-    </div>
-
-    <div class="container calculator">
-      <div class="location">
+    <div class="container calculator location inactive">
+      <div>
         <h2>What Country/State do you live in?</h2>
         <p>(Dropdown menu goes here!)</p>
       </div>
     </div>
+
+    <div class="container calculator age inactive">
+      <div>
+        <h2>How old are you?</h2>
+        <input class="question" type="number" id="myInput">
+        <p>Output Death Rate: <span id="caserate"></span>"%"</p>
+      </div>
+    </div>
+
+    <div class="container calculator ethnicity inactive">
+      <div>
+        <h2>Whats your ethnicity?</h2>
+        <p>(Dropdown menu with options like Asian, Black, Hispanic, White, etc.)</p>
+      </div>
+    </div>
+
+    <div class="container calculator conditions inactive">
+      <div>
+        <h2>Do you have any of these prexisting conditions?</h2>
+        <p>(Dropdown menu with Cardiovascular disease, Asthma, Diabetes, Chronic Respiratory, Hypertension, Cancer and 'No condition.')</p>
+      </div>
+    </div>
+
+    <div class="container calculator bloodtype inactive">
+      <div>
+        <h2>Tell us your blood type, if you know it.</h2>
+        <p>(Dropdown menu goes here!)</p>
+      </div>
+    </div>
+
+    <div class="container calculator diseases inactive">
+      <div>
+        <h2>You can also check outthe fataility rates of Covid as compared to other epidemics.</h2>
+        <p>Four expanding tiles</p>
+
+        <div class="tiles">
+          <p> Sars </p>
+          <p> Mers </p>
+          <p> Ebola </p>
+          <p> Seasonal Flu </p>
+        </div>
+
+      </div>
+    </div>
+
+
 
     <!--callsjquery and java-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
