@@ -37,7 +37,7 @@
           <p>Play around with the interactive below for a look at how these different factors can alter your odds of faring well against Covid-19.
     </div>
 
-    <div class="container calculator begin tiles">
+    <div class="container calculator begin tiles ">
       <p class="beginbutton"> Click here to begin </p>
     </div>
 
@@ -46,8 +46,8 @@
         <h2>Are you male or female?</h2>
         <p>Two buttons</p>
         <div class="tiles">
-          <p>Male</p>
-          <p>Female</p>
+          <p data-target="Male">Male</p>
+          <p data-target="Female">Female</p>
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@
       </div>
     </div>
 
-    <div class="container calculator age inactive">
+    <div class="container calculator age inactive ">
       <div>
         <h2>How old are you?</h2>
         <input class="question" type="number" id="myInput">
@@ -84,6 +84,13 @@
     <div class="container calculator bloodtype inactive">
       <div>
         <h2>Tell us your blood type, if you know it.</h2>
+        <select class="question" type="text" id="myInput">
+          <option value="A">Blood Type A</option>
+          <option value="B">Blood Type B</option>
+          <option value="O">Blood Type O</option>
+          <option value="AB">Blood Type AB</option>
+        </select>
+        <p>Output Susceptibility Rate: <span id="susceptibility"></span>"%"</p>
         <p>(Dropdown menu goes here!)</p>
       </div>
     </div>
