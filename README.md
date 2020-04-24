@@ -3,15 +3,24 @@
 This interactive should help a user personalize coronavirus in terms of their own health, location, and anything else that seems relevant.
 
 1) Have a nice clean CSS.
-2) Input at least 4-5 things from the user.
-3) Output interesting info based on those inputs.
-  3a)Which means we need datasets
-    data 1) Covid Death case rate
-    data 2) Preexisting condition case rate (We need to get data that says, ok if you have asthma, the death percentage is this)
-    ??
-    ??
-    ??
-4) What else can we do?
+2) Input
+  \#age:
+    \- Working!  Will need to update data again though on May 1st.
+  \#prexisting CONDITIONS:
+    \- TK
+  \#ETHNICITY
+    \- TK
+  \#sex (male or female?)
+    \- TK
+  \#Bloodtype
+    \- Working!   Will need to verify the data with sources though.
+  \#Comparison to other diseases
+    \- TK
 
--   race/ethnicity/background of some kind? I know if you live in NYC its 2xhigher death rate if black/brown.
--   zipcode?
+3)  Outputs to the reader:
+    \#Engaging analysis of the data
+    \- TK
+    \#Potentially tailored to the users input.
+      \-TK
+
+4) We need to clean up the data for all of these. Death rate x 100,000 ppl needs to be changed to fatality rate = case rate // death rate

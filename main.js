@@ -48,30 +48,27 @@ $("body").on("click", ".bloodtype", function (e) {
 });
 
 
-//DATA FOR PREEXISTING CONDITIONS//
-
-//DATA FOR STATES//
-
-//DATA FOR ETHNICITY//
-
-
-//Data for sex//
+//Data for sex-based fatality rate NOT WORKING YET//
 const sexdata = [{ "sexgroup": 'Female', "COVID_CASE_RATE": 913.66, "HOSPITALIZED_CASE_RATE": 196.19, "DEATH_RATE": 39.25 },
 	{ "sexgroup": 'Male', "COVID_CASE_RATE": 1178.07, "HOSPITALIZED_CASE_RATE": 318.75, "DEATH_RATE": 71.09 }];
 
-$("body").on("click", ".sex", function (e) {
+$("body").on("click", ".sex .tiles", function (e) { //Need to fix click function running to the left/right of tiles.
 	e.preventDefault();
 
 	let click_sex = e.target; //
 	let target = $(click_sex).data("target"); // "gets data attribute #(variablename) from click face."
-	console.log(target)
-
-	//NOT FINISHED YET!!//
-
+	document.querySelector("#usersex").innerHTML = target //Writes the choice the user input back to the website.
+	$(".sex_content").removeClass('inactive') //Makes the output appear.
+	let group = sexdata.find(function (row) { //Finds the death rate based on the data.
+		if (row.sexgroup === target) {
+			return true;
+		}
+	});
+	const sex_death_rate = group.DEATH_RATE;
+	document.querySelector("#sex_death_rate").innerHTML = sex_death_rate;
 });
 
-
-
+//Location data // We need to decide on this.
 
 //Data for bloodtype rate//
 const bloodtypedata = [{ "bloodtype_group": 'A', "COVID_CASE_RATE": 10.03 },
@@ -79,20 +76,17 @@ const bloodtypedata = [{ "bloodtype_group": 'A', "COVID_CASE_RATE": 10.03 },
 	{ "bloodtype_group": 'O', "COVID_CASE_RATE": 25.80 },
 	{ "bloodtype_group": 'AB', "COVID_CASE_RATE": 10.03 }];
 
-$("body").on("keyup keydown keypress change", ".calculator.bloodtype select", function (e) {
+$("body").on("change", ".calculator.bloodtype select", function (e) {
 	let type = $(this).val() //Stores input
-	//Finds the row that corresponds to the age range
+	//Finds the row that corresponds to the blood type
 	let group = bloodtypedata.find(function (row) {
 		if (row.bloodtype_group === type) {
 			return true;
 		}
 	});
-
 	const bloodtype_case_rate = group.COVID_CASE_RATE;
 	document.querySelector("#susceptibility").innerHTML = bloodtype_case_rate;
-	console.log(case_rate);
 });
-
 
 //Data for age-based death rate//
 const data = [{ "age_group_low": 0, "age_group_high": 17, "COVID_CASE_RATE": 47.25, "HOSPITALIZED_CASE_RATE": 4.81, "DEATH_RATE": 0.06 },
@@ -104,7 +98,6 @@ const data = [{ "age_group_low": 0, "age_group_high": 17, "COVID_CASE_RATE": 47.
 $("body").on("keyup keydown keypress change", ".calculator.age input", function (e) {
 	let user_input = $(this).val(); //Stores input
 	let age = parseInt(user_input);
-
 	//Finds the row that corresponds to the age range
 	let group = data.find(function (row) {
 		if (row.age_group_low <= age && row.age_group_high >= age) {
@@ -115,4 +108,25 @@ $("body").on("keyup keydown keypress change", ".calculator.age input", function 
 	const age_case_rate = group.DEATH_RATE;
 	document.querySelector("#caserate").innerHTML = age_case_rate
 	//need to add class active to the output text that accompanies this//
+});
+
+//Data for Ethnicity death rate, as of April 16th.
+const ethnicity_data = [
+	{ "Ethnicity": "Black/African American", "Non-hospitalized": 32.6, "Non-fatal hospitalized": 37, "KnownToHaveDied": 33.2 },
+	{ "Ethnicity": "Asian", "Non-hospitalized": 6.3, "Non-fatal hospitalized": 7.3, "KnownToHaveDied": 7.7 },
+	{ "Ethnicity": "White", "Non-hospitalized": 28.6, "Non-fatal hospitalized": 25.4, "KnownToHaveDied": 30.9 },
+	{ "Ethnicity": "Hispanic", "Non-hospitalized": 32.4, "Non-fatal hospitalized": 30.4, "KnownToHaveDied": 28.2 }];
+
+$("body").on("change", ".ethnicity select", function (e) {
+	let ethnicity = $(this).val() //Stores input
+	//Finds the row that corresponds to the blood type
+	let group = ethnicity_data.find(function (row) {
+		if (row.Ethnicity === ethnicity) {
+			return true;
+		}
+	});
+	const ethnicity_death_rate = group.KnownToHaveDied;
+	document.querySelector("#ethnicity_death_rate").innerHTML = ethnicity_death_rate;
+	document.querySelector("#ethnicity_choice").innerHTML = ethnicity
+
 });

@@ -44,34 +44,45 @@
     <div class="container calculator sex inactive">
       <div>
         <h2>Are you male or female?</h2>
-        <p>Two buttons</p>
+        <p>Coronavirus outcome rates differ slightly, but significantly, between sexes.</p>
+        <p>You chose <span class="choice" id="usersex"></span> . Based on your sex, you're fatality rate is: <span class="choice" id="sex_death_rate"></span></p>
         <div class="tiles">
           <p data-target="Male">Male</p>
           <p data-target="Female">Female</p>
         </div>
+        <p class="sex_content inactive">Here's a bunch of text about the difference among the sexes.
+        </p>
       </div>
     </div>
 
     <div class="container calculator location inactive">
       <div>
-        <h2>What Country/State do you live in?</h2>
+        <h2>What state do you live in?</h2>
         <p>(Dropdown menu goes here!)</p>
       </div>
     </div>
 
     <div class="container calculator age inactive ">
       <div>
-        <h2>How old are you?</h2>
+        <h2>How old are you? </h2>
         <input class="question" type="number" id="myInput">
-        <p>Output Death Rate: <span id="caserate"></span>"%"</p>
+        <p>Output Death Rate: <span class="choice" id="caserate"></span>"%"</p>
       </div>
     </div>
 
     <div class="container calculator ethnicity inactive">
       <div>
-        <h2>Whats your ethnicity?</h2>
-        <p>(Dropdown menu with options like Asian, Black, Hispanic, White, etc.)</p>
+        <h2>Select an ethnicity.</h2>
+        <select>
+          <option>--Select--</option>
+          <option>Asian</option>
+          <option>Black/African American</option>
+          <option>Hispanic</option>
+          <option>White</option>
+        </select>
+        <p><span class="choice" id="ethnicity_death_rate"></span> % of coronavirus deaths in New York City have been in the <span class="choice" id="ethnicity_choice"></span> community</p>
       </div>
+      <p> *Data on other ethnicities is unfortunately not yet available from the NYC Department of Health</p>
     </div>
 
     <div class="container calculator conditions inactive">
@@ -90,14 +101,14 @@
           <option value="O">Blood Type O</option>
           <option value="AB">Blood Type AB</option>
         </select>
-        <p>Output Susceptibility Rate: <span id="susceptibility"></span>"%"</p>
+        <p>Your susceptibility rate is: <span class="choice" id="susceptibility"></span>%</p>
         <p>(Dropdown menu goes here!)</p>
       </div>
     </div>
 
     <div class="container calculator diseases inactive">
       <div>
-        <h2>You can also check outthe fataility rates of Covid as compared to other epidemics.</h2>
+        <h2>You can also check out the fataility rates of Covid as compared to other epidemics.</h2>
         <p>Four expanding tiles</p>
 
         <div class="tiles">
@@ -109,8 +120,6 @@
 
       </div>
     </div>
-
-
 
     <!--callsjquery and java-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
