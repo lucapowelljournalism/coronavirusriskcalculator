@@ -69,7 +69,13 @@ $("body").on("click", ".sex .tiles", function (e) { //Need to fix click function
 });
 
 //Location data // We need to decide on this.
+const locationdata = [{ "Country": "Brazil", "FatalityRate": 6.6, "RecoveredCases": 26573, "Active": 20132 },
+	{ "Country": "Thailand", "FatalityRate": 1.8, "RecoveredCases": 2430, "Active": 359 },
+	{ "Country": "USA", "FatalityRate": 5.7, "RecoveredCases": 96, 677, "Active": 742, 830 }]
 
+//NEED TO ADD WAY MORE COUNTRIES
+//BAIDI
+//
 //Data for bloodtype rate//
 const bloodtypedata = [{ "bloodtype_group": 'A', "COVID_CASE_RATE": 10.03 },
 	{ "bloodtype_group": 'B', "COVID_CASE_RATE": 26.42 },
@@ -87,6 +93,8 @@ $("body").on("change", ".calculator.bloodtype select", function (e) {
 	const bloodtype_case_rate = group.COVID_CASE_RATE;
 	document.querySelector("#susceptibility").innerHTML = bloodtype_case_rate;
 });
+
+//Pre-existing BAIDI///
 
 //Data for age-based death rate//
 const data = [{ "age_group_low": 0, "age_group_high": 17, "COVID_CASE_RATE": 47.25, "HOSPITALIZED_CASE_RATE": 4.81, "DEATH_RATE": 0.06 },

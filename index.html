@@ -57,8 +57,16 @@
 
     <div class="container calculator location inactive">
       <div>
-        <h2>What state do you live in?</h2>
+        <h2>What country do you live in?</h2>
         <p>(Dropdown menu goes here!)</p>
+        <select>
+          <option>Brazil</option>
+          <option>Thailand</option>
+          <option>USA</option>
+        </select>
+        <p>There are <span id="activecases"></span> active cases in <span id="countrychoice"></span></p>
+        <p>There is a <span id="fatalityrate"></span> %.</p>
+        <p>There are <span id="recoveredcases"></span>.</p>
       </div>
     </div>
 
@@ -66,7 +74,7 @@
       <div>
         <h2>How old are you? </h2>
         <input class="question" type="number" id="myInput">
-        <p>Output Death Rate: <span class="choice" id="caserate"></span>"%"</p>
+        <p>Output Death Rate: <span class="choice" id="caserate"></span>%</p>
       </div>
     </div>
 
