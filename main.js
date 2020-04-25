@@ -26,15 +26,15 @@ $("body").on("click", ".age", function (e) {
 	$(".ethnicity").removeClass('inactive')
 });
 
-//Make the conditions tile active//
+//Make the prexistingconditions tile active//
 $("body").on("click", ".ethnicity", function (e) {
 	e.preventDefault();
 	console.log("clicking works")
-	$(".conditions").removeClass('inactive')
+	$(".prexistingconditions").removeClass('inactive')
 });
 
 //Make the bloodtype tile active//
-$("body").on("click", ".conditions", function (e) {
+$("body").on("click", ".prexistingconditions", function (e) {
 	e.preventDefault();
 	console.log("clicking works")
 	$(".bloodtype").removeClass('inactive')
@@ -46,7 +46,6 @@ $("body").on("click", ".bloodtype", function (e) {
 	console.log("clicking works")
 	$(".diseases").removeClass('inactive')
 });
-
 
 //Data for sex-based fatality rate NOT WORKING YET//
 const sexdata = [{ "sexgroup": 'Female', "COVID_CASE_RATE": 913.66, "HOSPITALIZED_CASE_RATE": 196.19, "DEATH_RATE": 39.25 },
@@ -69,6 +68,28 @@ $("body").on("click", ".sex .tiles", function (e) { //Need to fix click function
 });
 
 //Location data // We need to decide on this.
+
+
+//Data for prexisting conditions//
+const prexistingdata = [{ "prexistingconditions_group": 'Cardiovascular_disease', "prexisting_conditions_rate": 10.5 },
+	{ "prexistingconditions_group": 'Diabetes', "prexisting_conditions_rate": 7.3 },
+	{ "prexistingconditions_group": 'Chronic Respirator', "prexisting_conditions_rate": 6.3 },
+	{ "prexistingconditions_group": 'Hypertension', "prexisting_conditions_rate": 6 },
+	{ "prexistingconditions_group": 'Cancer', "prexisting_conditions_rate": 5.6 },
+	{ "prexistingconditions_group": 'No condition', "prexisting_conditions_rate": 0.9 }, ];
+
+$("body").on("change", ".calculator.prexistingconditions select", function (e) {
+	let type = $(this).val() //Stores input
+	//Finds the row that corresponds to the blood type
+	let group = prexistingdata.find(function (row) {
+		if (row.prexisting_conditions_group === type) {
+			return true;
+		}
+	});
+	const prexisting_conditions_rate = group.prexisting_conditions_rate;
+	document.querySelector("#prexisting conditions").innerHTML = prexisting_conditions_rate;
+});
+
 
 //Data for bloodtype rate//
 const bloodtypedata = [{ "bloodtype_group": 'A', "COVID_CASE_RATE": 10.03 },
