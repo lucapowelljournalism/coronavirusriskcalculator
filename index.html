@@ -93,10 +93,19 @@
       <p> *Data on other ethnicities is unfortunately not yet available from the NYC Department of Health</p>
     </div>
 
-    <div class="container calculator conditions inactive">
+    <div class="container calculator prexistingconditions inactive">
       <div>
         <h2>Do you have any of these prexisting conditions?</h2>
-        <p>(Dropdown menu with Cardiovascular disease, Asthma, Diabetes, Chronic Respiratory, Hypertension, Cancer and 'No condition.')</p>
+        <p><select class="question" type="text" id="myInput">
+            <option value="Cardiovascular disease">Cardiovascular disease</option>
+            <option value="Diabetes">Diabetes</option>
+            <option value="Chronic Respirator">Chronic Respiratory</option>
+            <option value="Hypertension">Hypertension</option>
+            <option value="Cancer">Cancer</option>
+            <option value="No condition">No condition</option>
+          </select>
+        </p>
+        <p>Your prexisting conditions rate is: <span class="choice" id="prexisting conditions"></span>%</p>
       </div>
     </div>
 
