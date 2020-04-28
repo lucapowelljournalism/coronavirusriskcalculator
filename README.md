@@ -16,6 +16,8 @@ This interactive should help a user personalize coronavirus in terms of their ow
     \- Working!   Will need to verify the data with sources though.
   \#Comparison to other diseases
     \- TK
+  \#Location data
+    \- Needs to be very-well organized! its a mess rn
 
 3)  Outputs to the reader:
     \#Engaging analysis of the data

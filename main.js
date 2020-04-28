@@ -1,4 +1,6 @@
-//Make the sex tile active//
+//----------------------------CSS Functions -----------------------------//
+
+//Make the 'sex' tile active//
 $("body").on("click", ".beginbutton", function (e) {
 	e.preventDefault();
 	console.log("clicking works")
@@ -47,6 +49,8 @@ $("body").on("click", ".bloodtype", function (e) {
 	$(".diseases").removeClass('inactive')
 });
 
+//--------------------------------------------------Beginning of Calculator Functions --------------------------------------
+
 //Data for sex-based fatality rate NOT WORKING YET//
 const sexdata = [{ "sexgroup": 'Female', "COVID_CASE_RATE": 913.66, "HOSPITALIZED_CASE_RATE": 196.19, "DEATH_RATE": 39.25 },
 	{ "sexgroup": 'Male', "COVID_CASE_RATE": 1178.07, "HOSPITALIZED_CASE_RATE": 318.75, "DEATH_RATE": 71.09 }];
@@ -55,11 +59,11 @@ $("body").on("click", ".sex .tiles", function (e) { //Need to fix click function
 	e.preventDefault();
 
 	let click_sex = e.target; //
-	let target = $(click_sex).data("target"); // "gets data attribute #(variablename) from click face."
-	document.querySelector("#usersex").innerHTML = target //Writes the choice the user input back to the website.
+	let user_sex = $(click_sex).data("target"); // "gets data attribute #(variablename) from click face."
+	document.querySelector("#usersex").innerHTML = user_sex //Writes the choice the user input back to the website.
 	$(".sex_content").removeClass('inactive') //Makes the output appear.
 	let group = sexdata.find(function (row) { //Finds the death rate based on the data.
-		if (row.sexgroup === target) {
+		if (row.sexgroup === user_sex) {
 			return true;
 		}
 	});
@@ -67,10 +71,78 @@ $("body").on("click", ".sex .tiles", function (e) { //Need to fix click function
 	document.querySelector("#sex_death_rate").innerHTML = sex_death_rate;
 });
 
+
 //Location data // We need to decide on this.
 const locationdata = [{ "Country": "Brazil", "FatalityRate": 6.6, "RecoveredCases": 26573, "Active": 20132 },
 	{ "Country": "Thailand", "FatalityRate": 1.8, "RecoveredCases": 2430, "Active": 359 },
-	{ "Country": "USA", "FatalityRate": 5.7, "RecoveredCases": 96, 677, "Active": 742, 830 }]
+	{ "Country": "USA", "FatalityRate": 5.7, "RecoveredCases": 96677, "Active": 742830 }]
+
+$("body").on("change", ".calculator.location select", function (e) {
+	let user_country = $(this).val() //Stores input
+	document.querySelector("#countrychoice").innerHTML = user_country //Writes the choice the user input back to the website.
+	$(".location_content").removeClass('inactive') //Makes the output appear.
+
+	let group = locationdata.find(function (row) { //Finds the row that corresponds to the blood type
+		if (row.Country === user_country) {
+			return true;
+		}
+	});
+	const fatality_rate = group.FatalityRate; //saves all those data
+	const recovered_cases = group.RecoveredCases;
+	const active_cases = group.Active;
+	document.querySelector("#fatalityrate").innerHTML = fatality_rate; //writes those data to the HTMl
+	document.querySelector("#recoveredcases").innerHTML = recovered_cases;
+	document.querySelector("#activecases").innerHTML = active_cases;
+
+});
+
+
+//Data for age-based death rate//
+const agedata = [
+	{ "age_group_low": 0, "age_group_high": 17, "COVID_CASE_RATE": 47.25, "HOSPITALIZED_CASE_RATE": 4.81, "DEATH_RATE": 0.06 },
+	{ "age_group_low": 18, "age_group_high": 44, "COVID_CASE_RATE": 556.94, "HOSPITALIZED_CASE_RATE": 50.78, "DEATH_RATE": 2.31 },
+	{ "age_group_low": 45, "age_group_high": 64, "COVID_CASE_RATE": 783.25, "HOSPITALIZED_CASE_RATE": 177.91, "DEATH_RATE": 16.2 },
+	{ "age_group_low": 65, "age_group_high": 75, "COVID_CASE_RATE": 798.72, "HOSPITALIZED_CASE_RATE": 302.38, "DEATH_RATE": 47.77 },
+	{ "age_group_low": 75, "age_group_high": 1000, "COVID_CASE_RATE": 791.26, "HOSPITALIZED_CASE_RATE": 403.86, "DEATH_RATE": 114.81 }];
+
+$("body").on("keyup keydown keypress change", ".calculator.age input", function (e) {
+	let user_input = $(this).val(); //Stores input
+	let age = parseInt(user_input);
+	$(".age_content").removeClass('inactive') //Makes the output appear.
+
+	let group = agedata.find(function (row) {
+		if (row.age_group_low <= age && row.age_group_high >= age) {
+			return true;
+		};
+	});
+	const age_case_rate = group.DEATH_RATE;
+	document.querySelector("#caserate").innerHTML = age_case_rate
+	//need to add class active to the output text that accompanies this//
+});
+
+
+//Data for Ethnicity death rate, as of April 16th.
+const ethnicity_data = [
+	{ "Ethnicity": "Black/African American", "Non-hospitalized": 32.6, "Non-fatal hospitalized": 37, "KnownToHaveDied": 33.2 },
+	{ "Ethnicity": "Asian", "Non-hospitalized": 6.3, "Non-fatal hospitalized": 7.3, "KnownToHaveDied": 7.7 },
+	{ "Ethnicity": "White", "Non-hospitalized": 28.6, "Non-fatal hospitalized": 25.4, "KnownToHaveDied": 30.9 },
+	{ "Ethnicity": "Hispanic", "Non-hospitalized": 32.4, "Non-fatal hospitalized": 30.4, "KnownToHaveDied": 28.2 }];
+
+$("body").on("change", ".ethnicity select", function (e) {
+	let ethnicity = $(this).val() //Stores input
+	$(".ethnicity_content").removeClass('inactive') //Makes the output appear.
+
+	//Finds the row that corresponds to the ethnicity selected
+	let group = ethnicity_data.find(function (row) {
+		if (row.Ethnicity === ethnicity) {
+			return true;
+		}
+	});
+	const ethnicity_death_rate = group.KnownToHaveDied;
+	document.querySelector("#ethnicity_death_rate").innerHTML = ethnicity_death_rate;
+	document.querySelector("#ethnicity_choice").innerHTML = ethnicity
+
+});
 
 
 //Data for prexisting conditions//
@@ -79,18 +151,19 @@ const prexistingdata = [{ "prexistingconditions_group": 'Cardiovascular_disease'
 	{ "prexistingconditions_group": 'Chronic Respirator', "prexisting_conditions_rate": 6.3 },
 	{ "prexistingconditions_group": 'Hypertension', "prexisting_conditions_rate": 6 },
 	{ "prexistingconditions_group": 'Cancer', "prexisting_conditions_rate": 5.6 },
-	{ "prexistingconditions_group": 'No condition', "prexisting_conditions_rate": 0.9 }, ];
+	{ "prexistingconditions_group": 'No condition', "prexisting_conditions_rate": 0.9 }];
 
 $("body").on("change", ".calculator.prexistingconditions select", function (e) {
-	let type = $(this).val() //Stores input
-	//Finds the row that corresponds to the blood type
+	let user_condition = $(this).val()
+	$(".conditions_content").removeClass('inactive'); //Makes the output appear.
+
 	let group = prexistingdata.find(function (row) {
-		if (row.prexisting_conditions_group === type) {
+		if (row.prexistingconditions_group === user_condition) {
 			return true;
 		}
 	});
 	const prexisting_conditions_rate = group.prexisting_conditions_rate;
-	document.querySelector("#prexisting conditions").innerHTML = prexisting_conditions_rate;
+	document.querySelector("#prexistingconditions").innerHTML = prexisting_conditions_rate;
 });
 
 
@@ -102,6 +175,7 @@ const bloodtypedata = [{ "bloodtype_group": 'A', "COVID_CASE_RATE": 10.03 },
 
 $("body").on("change", ".calculator.bloodtype select", function (e) {
 	let type = $(this).val() //Stores input
+	$(".bloodtype_content").removeClass('inactive');
 	//Finds the row that corresponds to the blood type
 	let group = bloodtypedata.find(function (row) {
 		if (row.bloodtype_group === type) {
@@ -110,49 +184,4 @@ $("body").on("change", ".calculator.bloodtype select", function (e) {
 	});
 	const bloodtype_case_rate = group.COVID_CASE_RATE;
 	document.querySelector("#susceptibility").innerHTML = bloodtype_case_rate;
-});
-
-//Pre-existing BAIDI///
-
-//Data for age-based death rate//
-const data = [{ "age_group_low": 0, "age_group_high": 17, "COVID_CASE_RATE": 47.25, "HOSPITALIZED_CASE_RATE": 4.81, "DEATH_RATE": 0.06 },
-	{ "age_group_low": 18, "age_group_high": 44, "COVID_CASE_RATE": 556.94, "HOSPITALIZED_CASE_RATE": 50.78, "DEATH_RATE": 2.31 },
-	{ "age_group_low": 45, "age_group_high": 64, "COVID_CASE_RATE": 783.25, "HOSPITALIZED_CASE_RATE": 177.91, "DEATH_RATE": 16.2 },
-	{ "age_group_low": 65, "age_group_high": 75, "COVID_CASE_RATE": 798.72, "HOSPITALIZED_CASE_RATE": 302.38, "DEATH_RATE": 47.77 },
-	{ "age_group_low": 75, "age_group_high": 1000, "COVID_CASE_RATE": 791.26, "HOSPITALIZED_CASE_RATE": 403.86, "DEATH_RATE": 114.81 }];
-
-$("body").on("keyup keydown keypress change", ".calculator.age input", function (e) {
-	let user_input = $(this).val(); //Stores input
-	let age = parseInt(user_input);
-	//Finds the row that corresponds to the age range
-	let group = data.find(function (row) {
-		if (row.age_group_low <= age && row.age_group_high >= age) {
-			return true;
-		}
-	});
-
-	const age_case_rate = group.DEATH_RATE;
-	document.querySelector("#caserate").innerHTML = age_case_rate
-	//need to add class active to the output text that accompanies this//
-});
-
-//Data for Ethnicity death rate, as of April 16th.
-const ethnicity_data = [
-	{ "Ethnicity": "Black/African American", "Non-hospitalized": 32.6, "Non-fatal hospitalized": 37, "KnownToHaveDied": 33.2 },
-	{ "Ethnicity": "Asian", "Non-hospitalized": 6.3, "Non-fatal hospitalized": 7.3, "KnownToHaveDied": 7.7 },
-	{ "Ethnicity": "White", "Non-hospitalized": 28.6, "Non-fatal hospitalized": 25.4, "KnownToHaveDied": 30.9 },
-	{ "Ethnicity": "Hispanic", "Non-hospitalized": 32.4, "Non-fatal hospitalized": 30.4, "KnownToHaveDied": 28.2 }];
-
-$("body").on("change", ".ethnicity select", function (e) {
-	let ethnicity = $(this).val() //Stores input
-	//Finds the row that corresponds to the blood type
-	let group = ethnicity_data.find(function (row) {
-		if (row.Ethnicity === ethnicity) {
-			return true;
-		}
-	});
-	const ethnicity_death_rate = group.KnownToHaveDied;
-	document.querySelector("#ethnicity_death_rate").innerHTML = ethnicity_death_rate;
-	document.querySelector("#ethnicity_choice").innerHTML = ethnicity
-
 });

@@ -41,34 +41,41 @@
       <p class="beginbutton"> Click here to begin </p>
     </div>
 
+    <!--Sex-->
+
     <div class="container calculator sex inactive">
-      <div>
-        <h2>Are you male or female?</h2>
-        <p>Coronavirus outcome rates differ slightly, but significantly, between sexes.</p>
+      <h2>Are you male or female?</h2>
+      <p>Coronavirus outcome rates differ slightly, but significantly, between sexes.</p>
+      <div class="tiles">
+        <p data-target="Male">Male</p>
+        <p data-target="Female">Female</p>
+      </div>
+      <div class="sex_content inactive">
         <p>You chose <span class="choice" id="usersex"></span> . Based on your sex, you're fatality rate is: <span class="choice" id="sex_death_rate"></span></p>
-        <div class="tiles">
-          <p data-target="Male">Male</p>
-          <p data-target="Female">Female</p>
-        </div>
-        <p class="sex_content inactive">Here's a bunch of text about the difference among the sexes.
+        <p>Here's a bunch of text about the difference among the sexes.
         </p>
       </div>
     </div>
+    <!--Location-->
 
     <div class="container calculator location inactive">
       <div>
         <h2>What country do you live in?</h2>
-        <p>(Dropdown menu goes here!)</p>
         <select>
           <option>Brazil</option>
           <option>Thailand</option>
           <option>USA</option>
         </select>
-        <p>There are <span id="activecases"></span> active cases in <span id="countrychoice"></span></p>
-        <p>There is a <span id="fatalityrate"></span> %.</p>
-        <p>There are <span id="recoveredcases"></span>.</p>
+      </div>
+      <div class="location_content output inactive">
+        <h2>In <span id="countrychoice"></span> there are:</h2>
+        <p><span id="activecases"></span> active cases.</p>
+        <p>A <span id="fatalityrate"></span> % fatality rate.</p>
+        <p>And <span id="recoveredcases"></span> recovered cases.</p>
       </div>
     </div>
+
+    <!--Age-->
 
     <div class="container calculator age inactive ">
       <div>
@@ -76,7 +83,12 @@
         <input class="question" type="number" id="myInput">
         <p>Output Death Rate: <span class="choice" id="caserate"></span>%</p>
       </div>
+      <div class="age_content output inactive">
+        <p>Here's some text about why covid affects older folks differently, and a little bit about the emerging studies on how Covid still affects young folks as well. </p>
+      </div>
     </div>
+
+    <!--Ethnicity-->
 
     <div class="container calculator ethnicity inactive">
       <div>
@@ -88,26 +100,35 @@
           <option>Hispanic</option>
           <option>White</option>
         </select>
-        <p><span class="choice" id="ethnicity_death_rate"></span> % of coronavirus deaths in New York City have been in the <span class="choice" id="ethnicity_choice"></span> community</p>
       </div>
-      <p> *Data on other ethnicities is unfortunately not yet available from the NYC Department of Health</p>
+      <div class="ethnicity_content output inactive">
+        <p><span class="choice" id="ethnicity_death_rate"></span> % of coronavirus deaths in New York City have been in the <span id="ethnicity_choice"></span> community</p>
+        <p>Here's some text about the crazy disparities in covid death rates in different new york cities, focusing on the Bronx, Queens and other communities that have been hit very hard. It should explain some of the factors involved, such as less
+          income, a higher prevalence of pre-existing conditions, less access to healthcare, and fear of hospitalization due to fear of ICE.</p>
+      </div>
+      <p class="content disclaimer">*Data on other ethnicities is unfortunately not yet available from the NYC Department of Health</p>
     </div>
+
+    <!--Pre-existing Conditions-->
 
     <div class="container calculator prexistingconditions inactive">
       <div>
         <h2>Do you have any of these prexisting conditions?</h2>
-        <p><select class="question" type="text" id="myInput">
-            <option value="Cardiovascular disease">Cardiovascular disease</option>
-            <option value="Diabetes">Diabetes</option>
-            <option value="Chronic Respirator">Chronic Respiratory</option>
-            <option value="Hypertension">Hypertension</option>
-            <option value="Cancer">Cancer</option>
-            <option value="No condition">No condition</option>
-          </select>
-        </p>
-        <p>Your prexisting conditions rate is: <span class="choice" id="prexisting conditions"></span>%</p>
+        <select class="question" type="text" id="myInput">
+          <option value="No condition">No condition</option>
+          <option value="Cardiovascular_disease">Cardiovascular disease</option>
+          <option value="Diabetes">Diabetes</option>
+          <option value="Chronic Respirator">Chronic Respiratory</option>
+          <option value="Hypertension">Hypertension</option>
+          <option value="Cancer">Cancer</option>
+        </select>
+      </div>
+      <div class="conditions_content output inactive">
+        <p>Based off of your chosen pre-existing conditions, your fatality rate is: <span class="choice" id="prexistingconditions"></span>%</p>
       </div>
     </div>
+
+    <!--Blood Type-->
 
     <div class="container calculator bloodtype inactive">
       <div>
@@ -118,24 +139,25 @@
           <option value="O">Blood Type O</option>
           <option value="AB">Blood Type AB</option>
         </select>
-        <p>Your susceptibility rate is: <span class="choice" id="susceptibility"></span>%</p>
-        <p>(Dropdown menu goes here!)</p>
+      </div>
+      <div class="bloodtype_content output inactive">
+        <p>Based off of your blood type, your susceptibility rate to Covid-19 is: <span class="choice" id="susceptibility"></span>%</p>
+        <p>Here's some information about that study, and what it means for your blood type.</p>
       </div>
     </div>
 
+    <!--Other Diseases-->
+
     <div class="container calculator diseases inactive">
-      <div>
-        <h2>You can also check out the fataility rates of Covid as compared to other epidemics.</h2>
-        <p>Four expanding tiles</p>
-
-        <div class="tiles">
-          <p> Sars </p>
-          <p> Mers </p>
-          <p> Ebola </p>
-          <p> Seasonal Flu </p>
-        </div>
-
+      <h2>You can also check out the fatality rates of Covid as compared to other epidemics.</h2>
+      <p>Four expanding tiles</p>
+      <div class="tiles">
+        <p> Sars </p>
+        <p> Mers </p>
+        <p> Ebola </p>
+        <p> Seasonal Flu </p>
       </div>
+
     </div>
 
     <!--callsjquery and java-->

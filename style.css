@@ -21,6 +21,7 @@ You will find this is far easier than the opposite task of using CSS to cram you
 html, body {
     /* Sets default font-size to 16px, ensuring 1em = 16px; */
     font-size: 16px;
+    background: ;
 }
 
 .header {
@@ -43,7 +44,7 @@ html, body {
 }
 
 .calculator {
-    background-color: #90DFDF;
+    border-style: groove;
     border-radius: 15px;
     text-align: center;
     padding: 2em;
@@ -52,6 +53,7 @@ html, body {
 
 .calculator h2 {
     display: inline;
+    padding: 20px;
 }
 
 .tiles p {
@@ -68,6 +70,11 @@ html, body {
 
 .choice {
     font-size: 1.5em;
+}
+
+.disclaimer {
+    /*Makes font smaller for 'fine-print' effect*/
+    font-size: .75em;
 }
 
 /*********************************************************************
