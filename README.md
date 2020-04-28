@@ -17,7 +17,15 @@ This interactive should help a user personalize coronavirus in terms of their ow
   \#Comparison to other diseases
     \- TK
   \#Location data
-    \- Needs to be very-well organized! its a mess rn
+    \- Need more countries, and a short paragraph of content for each.
+      \- Italy
+      \- China (Backup: South Korea)
+      \- Spain
+      \- New Zealand
+      \- Sweden
+      \- Australia
+      \- UK
+      \- Iran
 
 3)  Outputs to the reader:
     \#Engaging analysis of the data
