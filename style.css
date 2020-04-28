@@ -21,7 +21,6 @@ You will find this is far easier than the opposite task of using CSS to cram you
 html, body {
     /* Sets default font-size to 16px, ensuring 1em = 16px; */
     font-size: 16px;
-    background: ;
 }
 
 .header {
@@ -32,11 +31,25 @@ html, body {
     font-size: 4em;
 }
 
+.hero {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .container {
     max-width: 800px;
     width: 100%;
     margin: 0 auto;
+    padding: 10px;
+    padding-top: 20px;
     padding-bottom: 20px;
+    background-color: white;
+    border-radius: 15px;
+    background: url(/Users/jrpowell/Interactives/coronavirusriskcalculator/asdf.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
 }
 
 .content p {
@@ -49,6 +62,7 @@ html, body {
     text-align: center;
     padding: 2em;
     margin-bottom: 1em;
+    margin-top: 1em;
 }
 
 .calculator h2 {

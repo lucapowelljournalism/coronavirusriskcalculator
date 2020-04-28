@@ -26,49 +26,65 @@
   <body>
     <!-- YOUR CONTENT GOES HERE -->
     <div class="container header">
-      <h1> Coronavirus Health Risk Calculator</h1>
-      <p>Based off data from the City of New York.</p>
+      <h1> Covid-19: A Risk Calculator</h1>
     </div>
 
     <div class="container content">
-      <p>A common refrain about pandemics is that they don't discriminate, and that they affect all of society evenly. <p> But the reality on the ground is much different. Data from hospitals chronicling the impact
-          of the illness show that socioeconomic factors, sex, ethnicity, age, location and even blood-type all play a part. As you change those variables, so too do you change your chances of surviving Covid-19.
-
-          <p>Play around with the interactive below for a look at how these different factors can alter your odds of faring well against Covid-19.
+      <p>A common refrain about pandemics is that they don't discriminate, and that they affect all of society evenly.</p>
+      <p> But the reality on the ground is much different. Data from hospitals chronicling the impact
+        of the illness show that socioeconomic factors, sex, ethnicity, age, location and even blood-type all play a part. As you change those variables, so too do you change your chances of surviving Covid-19.</p>
+      <p>Play around with the interactive below for a look at how these different factors can alter your odds of faring well against Covid-19.</p>
     </div>
 
     <div class="container calculator begin tiles ">
-      <p class="beginbutton"> Click here to begin </p>
+      <p class="beginbutton"> Calculate </p>
     </div>
 
     <!--Sex-->
-
-    <div class="container calculator sex inactive">
-      <h2>Are you male or female?</h2>
-      <p>Coronavirus outcome rates differ slightly, but significantly, between sexes.</p>
-      <div class="tiles">
-        <p data-target="Male">Male</p>
-        <p data-target="Female">Female</p>
-      </div>
-      <div class="sex_content inactive">
-        <p>You chose <span class="choice" id="usersex"></span> . Based on your sex, you're fatality rate is: <span class="choice" id="sex_death_rate"></span></p>
-        <p>Here's a bunch of text about the difference among the sexes.
-        </p>
+    <div class="hero">
+      <div class="container calculator sex inactive">
+        <h2>Are you male or female?<span style="font-size: .5em;">*</span></h2>
+        <p>Coronavirus outcome rates differ slightly, but significantly, between sexes.</p>
+        <div class="tiles">
+          <p data-target="Male">Male</p>
+          <p data-target="Female">Female</p>
+        </div>
+        <div class="sex_content inactive">
+          <p>You chose <span class="choice" id="usersex"></span> . Based on your sex, you're fatality rate is: <span class="choice" id="sex_death_rate"></span></p>
+          <p>Here's a bunch of text about the difference among the sexes.
+          </p>
+        </div>
+        <p class="content disclaimer">*Data on transgender health outcomes related to Covid-19 is not yet available.</p>
       </div>
     </div>
+
     <!--Location-->
 
     <div class="container calculator location inactive">
       <div>
         <h2>What country do you live in?</h2>
-        <select>
+        <select id="country">
           <option>Brazil</option>
           <option>Thailand</option>
           <option>USA</option>
         </select>
       </div>
-      <div class="location_content output inactive">
+      <div class="country_content output inactive">
         <h2>In <span id="countrychoice"></span> there are:</h2>
+        <p><span id="activecases"></span> active cases.</p>
+        <p>A <span id="fatalityrate"></span> % fatality rate.</p>
+        <p>And <span id="recoveredcases"></span> recovered cases.</p>
+      </div>
+      <div class="statequestion inactive">
+        <h2>What state do you live in?</h2>
+        <select id="state">
+          <option>New York</option>
+          <option>Connecticut</option>
+          <option>California</option>
+        </select>
+      </div>
+      <div class="state_content output inactive">
+        <h2>In <span id="statechoice"></span> there are:</h2>
         <p><span id="activecases"></span> active cases.</p>
         <p>A <span id="fatalityrate"></span> % fatality rate.</p>
         <p>And <span id="recoveredcases"></span> recovered cases.</p>

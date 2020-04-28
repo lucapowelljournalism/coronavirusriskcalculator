@@ -72,15 +72,15 @@ $("body").on("click", ".sex .tiles", function (e) { //Need to fix click function
 });
 
 
-//Location data // We need to decide on this.
+//Location data // Country --> State --> Borough
 const locationdata = [{ "Country": "Brazil", "FatalityRate": 6.6, "RecoveredCases": 26573, "Active": 20132 },
 	{ "Country": "Thailand", "FatalityRate": 1.8, "RecoveredCases": 2430, "Active": 359 },
 	{ "Country": "USA", "FatalityRate": 5.7, "RecoveredCases": 96677, "Active": 742830 }]
 
-$("body").on("change", ".calculator.location select", function (e) {
+$("body").on("change", ".calculator.location select#country", function (e) {
 	let user_country = $(this).val() //Stores input
 	document.querySelector("#countrychoice").innerHTML = user_country //Writes the choice the user input back to the website.
-	$(".location_content").removeClass('inactive') //Makes the output appear.
+	$(".country_content").removeClass('inactive') //Makes the output appear.
 
 	let group = locationdata.find(function (row) { //Finds the row that corresponds to the blood type
 		if (row.Country === user_country) {
@@ -94,6 +94,17 @@ $("body").on("change", ".calculator.location select", function (e) {
 	document.querySelector("#recoveredcases").innerHTML = recovered_cases;
 	document.querySelector("#activecases").innerHTML = active_cases;
 
+	if (user_country === "USA") {
+		$(".statequestion").removeClass('inactive');
+	} else if (user_country !== "USA") {
+		$(".statequestion").addClass('inactive');
+	}
+
+	$("body").on("change", ".calculator.location select#state", function (e) {
+		let user_state = $(this).val(); //stores state Input
+		document.querySelector("#statechoice").innerHTML = user_state;
+		$(".state_content").removeClass('inactive');
+	});
 });
 
 
