@@ -23,6 +23,14 @@ html, body {
     font-size: 16px;
 }
 
+div {
+    margin: 1em;
+}
+
+p {
+    margin: 1em;
+}
+
 .header {
     text-align: center;
 }
