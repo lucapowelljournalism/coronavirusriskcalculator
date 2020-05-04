@@ -1,12 +1,4 @@
-/*
-This is a good layout for a mobile-first CSS template.
-Following this flow will minimize the number of styles you need to write and will ensure you are thinking, designing and developing mobile-first.
-Most of your styles get written like standard CSS, but for your mobile presentation. Generally speaking, a good mobile presention will stretch out nicely for larger screens.
-
-Sometimes, when we stretch out to larger screens, we need to make minor tweaks for the larger devices -- you can make these tweaks in the tablet media query, or if the issue exists on desktop only, the desktop media query.
-You will find this is far easier than the opposite task of using CSS to cram your desktop experience into a mobile device.
-*/
-/*********************************************************************
+/********************************************************************
  LOADS IN A NICE RESET TO ENSURE ALL BROWSERS HAVE THE SAME BASE STYLES
 *********************************************************************/
 @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
@@ -19,98 +11,218 @@ You will find this is far easier than the opposite task of using CSS to cram you
 }
 
 html, body {
-    /* Sets default font-size to 16px, ensuring 1em = 16px; */
     font-size: 16px;
-}
-
-div {
-    margin: 1em;
-}
-
-p {
-    margin: 1em;
-}
-
-.header {
-    text-align: center;
-}
-
-.header h1 {
-    font-size: 4em;
-}
-
-.hero {
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.container {
-    max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: white;
-    border-radius: 15px;
-    background: url(asdf.jpg) no-repeat center center fixed;
+    background-image: url(img/worldmap1.jpg);
     background-size: cover;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
 }
 
-.content p {
-    line-height: 1.5em;
-}
+@media(min-width: 200px) {
+    h2 {
+        padding: 5px;
+    }
 
-.calculator {
-    border-style: groove;
-    border-radius: 15px;
-    text-align: center;
-    padding: 2em;
-    margin-bottom: 1em;
-    margin-top: 1em;
-}
+    .container.header {
+        text-align: center;
+        font-size: 2em;
+    }
 
-.calculator h2 {
-    display: inline;
-    padding: 20px;
-}
+    .header p {
+        padding: 5%;
+    }
 
-.tiles p {
-    display: inline-block;
-    border-radius: 15%;
-    background-color: #98A7E1;
-    padding: 2em;
-    margin: 1em;
-}
+    .container {
+        min-width: 350px;
+        max-width: 800px;
+        width: 50%;
+        margin: 0 auto;
+        padding-top: 6%;
+        padding-bottom: 6%;
+        margin-top: 6%;
+        margin-bottom: 6%;
+        background-color: gray;
+        border-radius: 15px;
+        box-shadow: 3px 3px #c23407;
+    }
 
-.inactive {
-    opacity: 0;
-}
+    .content p {
+        line-height: 1.5em;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 1%;
+    }
 
-.choice {
-    font-size: 1.5em;
-}
+    .calculator {
+        border-radius: 15px;
+        text-align: center;
+    }
 
-.disclaimer {
-    /*Makes font smaller for 'fine-print' effect*/
-    font-size: .75em;
-}
+    .button {
+        background-color: white;
+        border: none;
+        color: white;
+        padding: 20px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
 
-/*********************************************************************
+    .output {
+        min-width: 350px;
+        max-width: 800px;
+        width: 50%;
+        margin: 0 auto;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 3px 3px #c23407;
+    }
+
+    .output p {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .inactive {
+        display: none;
+    }
+
+    .choice {
+        font-size: 1.5em;
+    }
+
+    .disclaimer {
+        font-size: .75em;
+    }
+
+    .left img {
+        display: none;
+    }
+
+    .right img {
+        display: none;
+    }
+
+    /*********************************************************************
   YOUR TABLET/DESKTOP STYLES GO HERE
 *********************************************************************/
-@media(min-width: 681px) {
-    /* Any adjustments for tablets and larger go here.
-    Note these styles will be applied to anything 681px or larger -- so tablet AND desktop */
-}
+    @media(min-width: 681px) {
 
-/*********************************************************************
+        /* Any adjustments for tablets and larger go here.
+    Note these styles will be applied to anything 681px or larger -- so tablet AND desktop */
+        h2 {
+            padding: 5px;
+        }
+
+        .container.header {
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .header p {
+            padding: 5%;
+        }
+
+        .container {
+            min-width: 350px;
+            max-width: 800px;
+            width: 50%;
+            margin: 0 auto;
+            padding-top: 3%;
+            padding-bottom: 3%;
+            margin-top: 3%;
+            margin-bottom: 3%;
+            background-color: gray;
+            border-radius: 15px;
+            box-shadow: 3px 3px #c23407;
+        }
+
+        .content p {
+            line-height: 1.5em;
+            margin-left: 5%;
+            margin-right: 5%;
+            padding: 1%;
+        }
+
+        .calculator {
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .button {
+            background-color: white;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .output {
+            min-width: 350px;
+            max-width: 800px;
+            width: 50%;
+            margin: 0 auto;
+            padding-top: 3%;
+            padding-bottom: 3%;
+            margin-top: 3%;
+            margin-bottom: 3%;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 3px 3px #c23407;
+        }
+
+        .output p {
+            background-color: white;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        .inactive {
+            display: none;
+        }
+
+        .choice {
+            font-size: 1.5em;
+        }
+
+        .disclaimer {
+            /*Makes font smaller for 'fine-print' effect*/
+            font-size: .75em;
+        }
+
+        .left img {
+            max-width: 200px;
+            width: 15%;
+            border-radius: 50%;
+            position: absolute;
+            display: flex;
+            left: 5%;
+            float: left;
+        }
+
+        .right img {
+            width: 20%;
+            top: 10%;
+            border-radius: 50%;
+            max-width: 200px;
+            display: flex;
+            right: 3%;
+            position: absolute;
+            float: right;
+        }
+    }
+
+    /*********************************************************************
   YOUR DESKTOP-ONLY STYLES GO HERE
 *********************************************************************/
-@media(min-width: 729px) {
-    /* Any adjustments for desktop and larger go here.
+    @media(min-width: 729px) {
+        /* Any adjustments for desktop and larger go here.
     Note these styles will be applied to anything 729px or larger -- so desktop */
-}
+    }

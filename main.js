@@ -1,53 +1,5 @@
 //----------------------------CSS Functions -----------------------------//
 
-//Make the 'sex' tile active//
-$("body").on("click", ".beginbutton", function (e) {
-	e.preventDefault();
-	console.log("clicking works")
-	$(".sex").removeClass('inactive')
-});
-
-//Make the location tile active//
-$("body").on("click", ".sex .tiles", function (e) {
-	e.preventDefault();
-	console.log("clicking works")
-	$(".location").removeClass('inactive')
-});
-
-//Make the age tile active//
-$("body").on("click", ".location", function (e) {
-	e.preventDefault();
-	console.log("clicking works")
-	$(".age").removeClass('inactive')
-});
-
-//Make the ethnicity tile active//
-$("body").on("click", ".age", function (e) {
-	e.preventDefault();
-	console.log("clicking works")
-	$(".ethnicity").removeClass('inactive')
-});
-
-//Make the prexistingconditions tile active//
-$("body").on("click", ".ethnicity", function (e) {
-	e.preventDefault();
-	console.log("clicking works")
-	$(".prexistingconditions").removeClass('inactive')
-});
-
-//Make the bloodtype tile active//
-$("body").on("click", ".prexistingconditions", function (e) {
-	e.preventDefault();
-	console.log("clicking works")
-	$(".bloodtype").removeClass('inactive')
-});
-
-//Make the location tile active//
-$("body").on("click", ".bloodtype", function (e) {
-	e.preventDefault();
-	console.log("clicking works")
-	$(".diseases").removeClass('inactive')
-});
 
 //--------------------------------------------------Beginning of Calculator Functions --------------------------------------
 
@@ -55,7 +7,7 @@ $("body").on("click", ".bloodtype", function (e) {
 const sexdata = [{ "sexgroup": 'Female', "COVID_CASE_RATE": 913.66, "HOSPITALIZED_CASE_RATE": 196.19, "DEATH_RATE": 39.25 },
 	{ "sexgroup": 'Male', "COVID_CASE_RATE": 1178.07, "HOSPITALIZED_CASE_RATE": 318.75, "DEATH_RATE": 71.09 }];
 
-$("body").on("click", ".sex .tiles", function (e) { //Need to fix click function running to the left/right of tiles.
+$("body").on("click", ".sex button", function (e) { //Need to fix click function running to the left/right of tiles.
 	e.preventDefault();
 
 	let click_sex = e.target; //
@@ -69,6 +21,9 @@ $("body").on("click", ".sex .tiles", function (e) { //Need to fix click function
 	});
 	const sex_death_rate = group.DEATH_RATE;
 	document.querySelector("#sex_death_rate").innerHTML = sex_death_rate;
+
+	$(".location").removeClass('inactive')
+
 });
 
 
@@ -82,32 +37,36 @@ const locationdata = [{ "Country": "Brazil", "FatalityRate": 6.6, "RecoveredCase
 
 $("body").on("change", ".calculator.location select#country", function (e) {
 	let user_country = $(this).val() //Stores input
-	document.querySelector("#countrychoice").innerHTML = user_country //Writes the choice the user input back to the website.
-	$(".country_content").removeClass('inactive') //Makes the output appear.
+	if (user_country !== "--Choose a country--") {
 
-	let group = locationdata.find(function (row) { //Finds the row that corresponds to the blood type
-		if (row.Country === user_country) {
-			return true;
+		document.querySelector("#countrychoice").innerHTML = user_country //Writes the choice the user input back to the website.
+		$(".country_content").removeClass('inactive') //Makes the output appear.
+
+		let group = locationdata.find(function (row) { //Finds the row that corresponds to the blood type
+			if (row.Country === user_country) {
+				return true;
+			}
+		});
+		const fatality_rate = group.FatalityRate; //saves all those data
+		const recovered_cases = group.RecoveredCases;
+		const active_cases = group.Active;
+		document.querySelector("#fatalityrate").innerHTML = fatality_rate; //writes those data to the HTMl
+		document.querySelector("#recoveredcases").innerHTML = recovered_cases;
+		document.querySelector("#activecases").innerHTML = active_cases;
+
+		if (user_country === "USA") {
+			$(".statequestion").removeClass('inactive');
+		} else if (user_country !== "USA") {
+			$(".statequestion").addClass('inactive');
 		}
-	});
-	const fatality_rate = group.FatalityRate; //saves all those data
-	const recovered_cases = group.RecoveredCases;
-	const active_cases = group.Active;
-	document.querySelector("#fatalityrate").innerHTML = fatality_rate; //writes those data to the HTMl
-	document.querySelector("#recoveredcases").innerHTML = recovered_cases;
-	document.querySelector("#activecases").innerHTML = active_cases;
 
-	if (user_country === "USA") {
-		$(".statequestion").removeClass('inactive');
-	} else if (user_country !== "USA") {
-		$(".statequestion").addClass('inactive');
+		$("body").on("change", ".calculator.location select#state", function (e) {
+			let user_state = $(this).val(); //stores state Input
+			document.querySelector("#statechoice").innerHTML = user_state;
+			$(".state_content").removeClass('inactive');
+		});
+		$(".age").removeClass('inactive')
 	}
-
-	$("body").on("change", ".calculator.location select#state", function (e) {
-		let user_state = $(this).val(); //stores state Input
-		document.querySelector("#statechoice").innerHTML = user_state;
-		$(".state_content").removeClass('inactive');
-	});
 
 });
 
@@ -133,6 +92,8 @@ $("body").on("keyup keydown keypress change", ".calculator.age input", function 
 	const age_case_rate = group.DEATH_RATE;
 	document.querySelector("#caserate").innerHTML = age_case_rate
 	//need to add class active to the output text that accompanies this//
+	$(".ethnicity").removeClass('inactive')
+
 });
 
 
@@ -156,6 +117,8 @@ $("body").on("change", ".ethnicity select", function (e) {
 	const ethnicity_death_rate = group.KnownToHaveDied;
 	document.querySelector("#ethnicity_death_rate").innerHTML = ethnicity_death_rate;
 	document.querySelector("#ethnicity_choice").innerHTML = ethnicity
+	$(".prexistingconditions").removeClass('inactive')
+
 
 });
 
@@ -179,6 +142,8 @@ $("body").on("change", ".calculator.prexistingconditions select", function (e) {
 	});
 	const prexisting_conditions_rate = group.prexisting_conditions_rate;
 	document.querySelector("#prexistingconditions").innerHTML = prexisting_conditions_rate;
+	$(".bloodtype").removeClass('inactive')
+
 });
 
 
