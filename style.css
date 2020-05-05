@@ -12,24 +12,52 @@
 
 html, body {
     font-size: 16px;
+    font-family: Verdana, sans-serif;
     background-image: url(img/worldmap1.jpg);
     background-size: cover;
     height: 100%;
     overflow: auto;
 }
 
+#byline {
+    font-size: 1em;
+}
+
 @media(min-width: 200px) {
-    h2 {
-        padding: 5px;
-    }
-
     .container.header {
-        text-align: center;
-        font-size: 2em;
+        text-align: left;
+        background-color: none;
     }
 
-    .header p {
-        padding: 5%;
+    h1 {
+        font-size: 2.5em;
+        margin-left: 2%;
+        margin-right: 2%;
+        text-shadow: 1px 1px #c23407;
+        color: white;
+    }
+
+    h6 {
+        font-size: .6em;
+        font-weight: bold;
+        margin-left: 5%;
+        margin-right: 5%;
+        color: #c23407;
+        text-shadow: .35px .35px #c23407;
+        display: inline-block;
+    }
+
+    .newsservice img {
+        float: right;
+        margin-right: 10%;
+        max-width: 60px;
+        width: 20%;
+    }
+
+    h6 a {
+        font-size: .7em;
+        color: white;
+        text-decoration: none;
     }
 
     .container {
@@ -41,8 +69,22 @@ html, body {
         padding-bottom: 6%;
         margin-top: 6%;
         margin-bottom: 6%;
-        background-color: gray;
         border-radius: 15px;
+    }
+
+    h6 img {
+        /*Style for twitter icons*/
+        display: inline;
+        width: 17px;
+        margin-left: 6px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 2;
+        vertical-align: middle;
+    }
+
+    .content {
+        background-color: gray;
         box-shadow: 3px 3px #c23407;
     }
 
@@ -56,6 +98,7 @@ html, body {
     .calculator {
         border-radius: 15px;
         text-align: center;
+        background-color: gray;
     }
 
     .button {
@@ -114,17 +157,15 @@ html, body {
 
         /* Any adjustments for tablets and larger go here.
     Note these styles will be applied to anything 681px or larger -- so tablet AND desktop */
-        h2 {
-            padding: 5px;
+        h1 {
+            font-size: 1em;
+            padding: 5%;
+            text-shadow: 1px 1px #c23407;
         }
 
         .container.header {
-            text-align: center;
-            font-size: 2em;
-        }
-
-        .header p {
-            padding: 5%;
+            text-align: left;
+            font-size: 2.5em;
         }
 
         .container {
@@ -136,16 +177,16 @@ html, body {
             padding-bottom: 3%;
             margin-top: 3%;
             margin-bottom: 3%;
-            background-color: gray;
             border-radius: 15px;
+        }
+
+        .content {
             box-shadow: 3px 3px #c23407;
         }
 
         .content p {
-            line-height: 1.5em;
             margin-left: 5%;
             margin-right: 5%;
-            padding: 1%;
         }
 
         .calculator {
@@ -208,10 +249,10 @@ html, body {
         }
 
         .right img {
+            max-width: 180px;
             width: 20%;
-            top: 10%;
+            top: 40px;
             border-radius: 50%;
-            max-width: 200px;
             display: flex;
             right: 3%;
             position: absolute;
