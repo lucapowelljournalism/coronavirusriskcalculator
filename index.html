@@ -32,13 +32,12 @@
       </div>
       <h1> COVID-19: Risk Calculator</h1>
       <h6>By Luca Powell and Baidi Wang</h6>
-      <br>
-      <h6 style="border:0px; color: white;">Find us on Twitter!
+      <h6 id="twitter">Find us on Twitter!
         <img src="img/twitter.jpg">
         <a href="https://twitter.com/lucapowellCUNY">Powell</a>
         <img src="img/twitter.jpg">
         <a href="https://twitter.com/baidi_wang">Wang</a></span>
-        </p>
+        <h6><a href="https://leonardomarch.github.io/covidproject/">Return to Project Homepage</a></h6>
     </div>
 
     <div class="container content">
@@ -51,17 +50,18 @@
 
     <!--Sex-->
     <div class="container calculator sex ">
-      <h2>Are you male or female?<span style="font-size: .5em;">*</span></h2>
+      <h3>Are you male or female?<span style="font-size: .45em;">*</span></h3>
       <p>Coronavirus outcome rates differ slightly, but significantly, between sexes.</p>
       <button type="button" data-target="Male">Male</button>
       <button type="button" data-target="Female">Female</button>
+      <p class=" disclaimer">*Data on transgender health outcomes related to COVID-19 is not yet available.</p>
+
     </div>
     <!--Sex Output-->
     <div class="sex_content output inactive">
       <p>You chose <span class="choice" id="usersex"></span> . Based on your sex, you're fatality rate is: <span class="choice" id="sex_death_rate"></span></p>
       <p>Here's a bunch of text about the difference among the sexes.
       </p>
-      <p class="content disclaimer">*Data on transgender health outcomes related to COVID-19 is not yet available.</p>
     </div>
 
 
@@ -78,27 +78,31 @@
           <option>USA</option>
         </select>
       </div>
-      <div class="country_content output inactive">
-        <h2>In <span id="countrychoice"></span> there are:</h2>
-        <p><span id="activecases"></span> active cases.</p>
-        <p>A <span id="fatalityrate"></span> % fatality rate.</p>
-        <p>And <span id="recoveredcases"></span> recovered cases.</p>
-      </div>
-      <div class="statequestion inactive">
-        <h2>What state do you live in?</h2>
-        <select id="state">
-          <option>New York</option>
-          <option>Connecticut</option>
-          <option>California</option>
-        </select>
-      </div>
-      <div class="state_content output inactive">
-        <h2>In <span id="statechoice"></span> there are:</h2>
-        <p><span id="activecases"></span> active cases.</p>
-        <p>A <span id="fatalityrate"></span> % fatality rate.</p>
-        <p>And <span id="recoveredcases"></span> recovered cases.</p>
-      </div>
     </div>
+    <div class="country_content calculator output inactive">
+      <h2>In <span id="countrychoice"></span> there are:</h2>
+      <p><span id="activecases"></span> active cases.</p>
+      <p>A <span id="fatalityrate"></span> % fatality rate.</p>
+      <p>And <span id="recoveredcases"></span> recovered cases.</p>
+    </div>
+
+    <div class="output calculator statequestion inactive">
+      <h2>What state do you live in?</h2>
+      <select id="state">
+        <option>--Choose a State--</option>
+        <option>New York</option>
+        <option>Connecticut</option>
+        <option>California</option>
+      </select>
+    </div>
+
+    <div class="state_content calculator output inactive">
+      <h2>In <span id="statechoice"></span> there are:</h2>
+      <p><span id="activecases"></span> active cases.</p>
+      <p>A <span id="fatalityrate"></span> % fatality rate.</p>
+      <p>And <span id="recoveredcases"></span> recovered cases.</p>
+    </div>
+
 
     <!--Age-->
 
@@ -108,9 +112,9 @@
         <input class="question" type="number" id="myInput">
         <p>Output Death Rate: <span class="choice" id="caserate"></span>%</p>
       </div>
-      <div class="age_content output inactive">
-        <p>Here's some text about why covid affects older folks differently, and a little bit about the emerging studies on how Covid still affects young folks as well. </p>
-      </div>
+    </div>
+    <div class="age_content output inactive">
+      <p>Here's some text about why covid affects older folks differently, and a little bit about the emerging studies on how Covid still affects young folks as well. </p>
     </div>
 
     <!--Ethnicity-->
@@ -126,13 +130,13 @@
           <option>White</option>
         </select>
       </div>
-      <div class="ethnicity_content output inactive">
-        <p><span class="choice" id="ethnicity_death_rate"></span> % of coronavirus deaths in New York City have been in the <span id="ethnicity_choice"></span> community</p>
-        <p>Here's some text about the crazy disparities in covid death rates in different new york cities, focusing on the Bronx, Queens and other communities that have been hit very hard. It should explain some of the factors involved, such as
-          less
-          income, a higher prevalence of pre-existing conditions, less access to healthcare, and fear of hospitalization due to fear of ICE.</p>
-      </div>
-      <p class="content disclaimer">*Data on other ethnicities is unfortunately not yet available from the NYC Department of Health</p>
+    </div>
+    <div class="ethnicity_content output inactive">
+      <p><span class="choice" id="ethnicity_death_rate"></span> % of coronavirus deaths in New York City have been in the <span id="ethnicity_choice"></span> community</p>
+      <p>Here's some text about the crazy disparities in covid death rates in different new york cities, focusing on the Bronx, Queens and other communities that have been hit very hard. It should explain some of the factors involved, such as
+        less
+        income, a higher prevalence of pre-existing conditions, less access to healthcare, and fear of hospitalization due to fear of ICE.</p>
+      <p class=" disclaimer">*Data on other ethnicities is unfortunately not yet available from the NYC Department of Health</p>
     </div>
 
     <!--Pre-existing Conditions-->
@@ -149,10 +153,11 @@
           <option value="Cancer">Cancer</option>
         </select>
       </div>
-      <div class="conditions_content output inactive">
-        <p>Based off of your chosen pre-existing conditions, your fatality rate is: <span class="choice" id="prexistingconditions"></span>%</p>
-      </div>
     </div>
+    <div class="conditions_content output inactive">
+      <p>Based off of your chosen pre-existing conditions, your fatality rate is: <span class="choice" id="prexistingconditions"></span>%</p>
+    </div>
+
 
     <!--Blood Type-->
 
@@ -167,10 +172,15 @@
           <option value="AB">Blood Type AB</option>
         </select>
       </div>
-      <div class="bloodtype_content output inactive">
-        <p>Based off of your blood type, your susceptibility rate to Covid-19 is: <span class="choice" id="susceptibility"></span>%</p>
-        <p>Here's some information about that study, and what it means for your blood type.</p>
-      </div>
+    </div>
+    <div class="bloodtype_content output inactive">
+      <p>Based off of your blood type, your susceptibility rate to Covid-19 is: <span class="choice" id="susceptibility"></span>%</p>
+      <p>Here's some information about that study, and what it means for your blood type.</p>
+      <h6><a href="https://leonardomarch.github.io/covidproject/">Return to Project Homepage</a></h6>
+
+    </div>
+    <div class="container return">
+      <h6><a href="https://leonardomarch.github.io/covidproject/">Return to Project Homepage</a></h6>
     </div>
     <!--callsjquery and java-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

@@ -36,7 +36,7 @@ const locationdata = [{ "Country": "Brazil", "FatalityRate": 6.6, "RecoveredCase
 //Add 10 more countries//
 
 $("body").on("change", ".calculator.location select#country", function (e) {
-	let user_country = $(this).val() //Stores input
+	let user_country = $(this).val(); //Stores input
 	if (user_country !== "--Choose a country--") {
 
 		document.querySelector("#countrychoice").innerHTML = user_country //Writes the choice the user input back to the website.
@@ -47,6 +47,7 @@ $("body").on("change", ".calculator.location select#country", function (e) {
 				return true;
 			}
 		});
+
 		const fatality_rate = group.FatalityRate; //saves all those data
 		const recovered_cases = group.RecoveredCases;
 		const active_cases = group.Active;
@@ -55,21 +56,26 @@ $("body").on("change", ".calculator.location select#country", function (e) {
 		document.querySelector("#activecases").innerHTML = active_cases;
 
 		if (user_country === "USA") {
+			user_country = "the United States";
+		}
+
+		if (user_country === "the United States") {
 			$(".statequestion").removeClass('inactive');
-		} else if (user_country !== "USA") {
+		} else if (user_country !== "the United States") {
 			$(".statequestion").addClass('inactive');
 		}
 
-		$("body").on("change", ".calculator.location select#state", function (e) {
-			let user_state = $(this).val(); //stores state Input
-			document.querySelector("#statechoice").innerHTML = user_state;
-			$(".state_content").removeClass('inactive');
+		$("body").on("change", ".statequestion select#state", function (e) {
+			user_state = $(this).val();
+			if (user_state !== "--Choose a State") {
+				document.querySelector("#statechoice").innerHTML = user_state;
+				$(".state_content").removeClass("inactive");
+			}
 		});
-		$(".age").removeClass('inactive')
+		///Don't touch these parens below this///
+		$(".age").removeClass('inactive');
 	}
-
 });
-
 
 //Data for age-based death rate//
 const agedata = [
