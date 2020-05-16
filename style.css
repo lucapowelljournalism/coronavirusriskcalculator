@@ -131,10 +131,6 @@ html, body {
         display: none;
     }
 
-    .choice {
-        text-decoration: underline;
-    }
-
     .disclaimer {
         font-size: .75em;
     }

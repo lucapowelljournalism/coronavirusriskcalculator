@@ -59,7 +59,7 @@
     </div>
     <!--Sex Output-->
     <div class="sex_content output inactive">
-      <p>You chose <span class="choice" id="usersex"></span> . Based on your sex, you're fatality rate is: <span class="choice" id="sex_death_rate"></span></p>
+      <p>You chose <span class="choice" id="usersex"></span> . Based on your sex, you're fatality rate is: <span class="choice" id="sex_death_rate"></span>%</p>
       <p><b>As the coronavirus sweeps all over the world, the data about the fatality rate of males and females shows that males are likely to be infected by the coronavirus than females. There are couple reasons to explain for that.
           One reason may be
           that males in the U.S. are less likely to seek out testing for the coronavirus when they feel sick. Also, the biological differences between males and females is another potential reason.
@@ -75,34 +75,104 @@
         <h2>What country do you live in?</h2>
         <select id="country">
           <option>--Choose a country--</option>
+          <option>Argentina</option>
           <option>Brazil</option>
-          <option>Thailand</option>
+          <option>France</option>
+          <option>Germany</option>
+          <option>Iran</option>
+          <option>India</option>
+          <option>Japan</option>
+          <option>Kenya</option>
+          <option>New Zealand</option>
+          <option>Pakistan</option>
+          <option>Russia</option>
+          <option>Singapore</option>
+          <option>South Africa</option>
+          <option>South Korea</option>
+          <option>UK</option>
           <option>USA</option>
+          <option>Thailand</option>
+          <option>Vietnam</option>
         </select>
       </div>
     </div>
     <div class="country_content calculator output inactive">
-      <h2>In <span id="countrychoice"></span> there are:</h2>
-      <p><span id="activecases"></span> active cases.</p>
-      <p>A <span id="fatalityrate"></span> % fatality rate.</p>
-      <p>And <span id="recoveredcases"></span> recovered cases.</p>
+      <h2>In <span id="countrychoice"></span>:</h2>
+      <p>There have been <span id="confirmed_cases"></span> confirmed cases.</p>
+      <p><span id="deaths"></span> deaths.</p>
+      <p>And a <span id="fatalityrate"></span> % fatality rate.</p>
+      <p>Calculating a fatality rate is at best a crude science in an ongoing pandemic. The basic formula is to divide confirmed deaths by confirmed cases. But that formula is only as accurate as the reporting of both those variables. For more on
+        fataliy rates, please see this <a href="https://www.npr.org/2020/04/24/844562935/why-the-true-fatality-rate-of-covid-19-is-hard-to-estimate">interview</a> with a professor of biostatistics.</p>
     </div>
 
     <div class="output calculator statequestion inactive">
       <h2>What state do you live in?</h2>
       <select id="state">
         <option>--Choose a State--</option>
-        <option>New York</option>
-        <option>Connecticut</option>
+        <option>Alabama</option>
+        <option>Alaska</option>
+        <option>American Samoa</option>
+        <option>Arizona</option>
+        <option>Arkansas</option>
         <option>California</option>
+        <option>Colorado</option>
+        <option>Connecticut</option>
+        <option>Delaware</option>
+        <option>District of Columbia</option>
+        <option>Florida</option>
+        <option>Georgia</option>
+        <option>Guam</option>
+        <option>Hawaii</option>
+        <option>Idaho</option>
+        <option>Illinois</option>
+        <option>Indiana</option>
+        <option>Iowa</option>
+        <option>Kansas</option>
+        <option>Kentucky</option>
+        <option>Louisiana</option>
+        <option>Maine</option>
+        <option>Maryland</option>
+        <option>Massachusetts</option>
+        <option>Michigan</option>
+        <option>Minnesota</option>
+        <option>Mississippi</option>
+        <option>Missouri</option>
+        <option>Montana</option>
+        <option>Nebraska</option>
+        <option>Nevada</option>
+        <option>New Hampshire</option>
+        <option>New Jersey</option>
+        <option>New Mexico</option>
+        <option>New York</option>
+        <option>North Carolina</option>
+        <option>North Dakota</option>
+        <option>Ohio</option>
+        <option>Oklahoma</option>
+        <option>Oregon</option>
+        <option>Pennsylvania</option>
+        <option>Puerto Rico</option>
+        <option>Rhode Island</option>
+        <option>South Dakota</option>
+        <option>Tennessee</option>
+        <option>Texas</option>
+        <option>Utah</option>
+        <option>Vermont</option>
+        <option>Virgin Islands</option>
+        <option>Virginia</option>
+        <option>Washington</option>
+        <option>West Virginia</option>
+        <option>Wisconsin</option>
+        <option>Wyoming</option>
       </select>
     </div>
 
     <div class="state_content calculator output inactive">
-      <h2>In <span id="statechoice"></span> there are:</h2>
-      <p><span id="activecases"></span> active cases.</p>
-      <p>A <span id="fatalityrate"></span> % fatality rate.</p>
-      <p>And <span id="recoveredcases"></span> recovered cases.</p>
+      <h2>In <span id="statechoice"></span>:</h2>
+      <p>There have been <span id="state_confirmed"></span> confirmed cases.</p>
+      <p>And <span id="state_deaths"></span> deaths so far.</p>
+      <p>A <span id="state_fatality_rate"></span> % fatality rate.</p>
+
+      <p>Content about the differences between the states.</p>
     </div>
 
 
@@ -112,7 +182,7 @@
       <div>
         <h2>How old are you? </h2>
         <input class="question" type="number" id="myInput">
-        <p>Output Death Rate: <span class="choice" id="caserate"></span>%</p>
+        <p>Output Death Rate: <span class="choice" id="age_death_rate"></span>%</p>
       </div>
     </div>
     <div class="age_content output inactive">
@@ -126,7 +196,7 @@
         <h2>Select an ethnicity.</h2>
         <select>
           <option>--Select--</option>
-          <option>Asian</option>
+          <option>Asian/Pacific Islander</option>
           <option>Black/African American</option>
           <option>Hispanic</option>
           <option>White</option>
@@ -135,6 +205,7 @@
     </div>
     <div class="ethnicity_content output inactive">
       <p><span class="choice" id="ethnicity_death_rate"></span> % of coronavirus deaths in New York City have been in the <span id="ethnicity_choice"></span> community</p>
+      <p> Meanwhile, <span id="ethnicity_choice_2"></span> community also accounts for <span id="ethnicity_hospitalization_rate"></span> % of COVID-19 hospitalizations.</p>
       <p>Here's some text about the crazy disparities in covid death rates in different new york cities, focusing on the Bronx, Queens and other communities that have been hit very hard. It should explain some of the factors involved, such as
         less
         income, a higher prevalence of pre-existing conditions, less access to healthcare, and fear of hospitalization due to fear of ICE.</p>
