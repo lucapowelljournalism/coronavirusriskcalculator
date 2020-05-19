@@ -18,10 +18,6 @@ html, body {
     height: 100%;
 }
 
-#byline {
-    font-size: 1em;
-}
-
 .container {
     text-align: left;
     min-width: 350px;
@@ -35,16 +31,49 @@ html, body {
     border-radius: 15px;
 }
 
+.bottom {
+    border-top: 1px dotted #BDCEDA;
+    padding-top: 10px;
+    font-size: .75em;
+    color: #1DA1F2;
+    display: inline;
+    width: 100%;
+    text-align: center;
+}
+
+.bottom p {
+    display: inline;
+    vertical-align: middle;
+}
+
+.bottom img {
+    width: 30px;
+    display: inline;
+    padding-left: 5px;
+    vertical-align: middle;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.center {
+    text-align: center;
+}
+
 @media(min-width: 200px) {
     h1 {
-        font-size: 2.5em;
-        text-shadow: 1px 1px #c23407;
+        font-size: 3.5em;
+        text-shadow: 2px 2px #c23407;
         color: white;
     }
 
     h6 {
-        font-size: .5em;
+        font-size: 1em;
+        color: white;
+    }
+
+    .newsservice {
         color: #c23407;
+        font-size: 1.5em;
     }
 
     .newsservice img {
@@ -53,7 +82,7 @@ html, body {
         position: relative;
         top: -60px;
         margin-right: 10%;
-        max-width: 60px;
+        max-width: 80px;
         width: 20%;
         display: inline-block;
     }
@@ -76,8 +105,9 @@ html, body {
         vertical-align: middle;
     }
 
-    #twitter {
+    .header span {
         color: white;
+        float: right;
     }
 
     .content {
@@ -88,6 +118,8 @@ html, body {
 
     .content p {
         line-height: 1.1em;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
     .calculator {
@@ -148,17 +180,27 @@ html, body {
         text-align: center
     }
 
+    select {
+        background-color: white;
+        border-radius: 5%;
+    }
+
     /*********************************************************************
   YOUR TABLET/DESKTOP STYLES GO HERE
 *********************************************************************/
     @media(min-width: 681px) {
+        .newsservice {
+            color: #c23407;
+            font-size: .5em;
+        }
 
-        /* Any adjustments for tablets and larger go here.
-    Note these styles will be applied to anything 681px or larger -- so tablet AND desktop */
         h1 {
-            font-size: 1em;
-            padding: 5%;
-            text-shadow: 1px 1px #c23407;
+            font-size: 1.5em;
+            text-shadow: 3px 3px #c23407;
+        }
+
+        h6 {
+            font-size: .5em;
         }
 
         .container.header {
@@ -252,12 +294,4 @@ html, body {
             position: absolute;
             float: right;
         }
-    }
-
-    /*********************************************************************
-  YOUR DESKTOP-ONLY STYLES GO HERE
-*********************************************************************/
-    @media(min-width: 729px) {
-        /* Any adjustments for desktop and larger go here.
-    Note these styles will be applied to anything 729px or larger -- so desktop */
     }
